@@ -100,18 +100,23 @@ struct Carte {
         
     }
     
-    init(stringLiteral: String) {
+    init?(stringLiteral: String) {
         if stringLiteral.count != 2 {
             return nil
         } else {
             let newCard : Carte
-            let value = Int(stringLiteral[stringLiteral.startIndex])
+            let temp = stringLiteral[stringLiteral.startIndex]
+            let value : Int = Int(String(temp))!
             let color = stringLiteral[stringLiteral.index(after: stringLiteral.startIndex)]
             
             if (nil == Carte.Valeur(rawValue: value)) && ( nil == Carte.Couleur(rawValue: color)) {
-                <#code#>
+                return nil
+            } else {
+                newCard = Carte(val: Carte.Valeur(rawValue: value)! , coul: Carte.Couleur(rawValue: color)!)
+                self.valeur = newCard.valeur
+                self.couleur = newCard.couleur
             }
-            return newCard
+            
         }
     }
 
