@@ -21,10 +21,9 @@ print("val e : \(e.rawValue), val a : \(a.rawValue), test e > a : \(e > a)")
 print("val e : \(e.rawValue), val a : \(a.rawValue), test e >= a : \(e >= a)")
 print("val a : \(a.rawValue), val b : \(b.rawValue), test min(a, b) : \(min(a, b))")
 print("val a : \(a.rawValue), val b : \(b.rawValue), test max(a, b) : \(max(a, b))")
-/*for carte in b ... d {
+
+for carte in b ... d {
     print("\(carte)", terminator: ":")
-}*/
-let f = Carte(raw: 14)
-print(f)
+}
 
 
