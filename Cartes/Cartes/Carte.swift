@@ -105,8 +105,8 @@ struct Carte {
             return nil
         } else {
             let newCard : Carte
-            let temp = stringLiteral[stringLiteral.startIndex]
-            let value : Int = Int(String(temp))!
+            let temp = stringLiteral[stringLiteral.startIndex]
+            let value : Int = Int(String(temp))!
             let color = stringLiteral[stringLiteral.index(after: stringLiteral.startIndex)]
             
             if (nil == Carte.Valeur(rawValue: value)) && ( nil == Carte.Couleur(rawValue: color)) {
