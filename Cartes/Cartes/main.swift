@@ -26,4 +26,12 @@ for carte in b ... d {
     print("\(carte)", terminator: ":")
 }
 
+let f : Carte = "8♣️"
+print("f : \(f)")
+
+for carte : Carte in "8♣️"..."4♦️"{
+    print(carte)
+}
+
+
 

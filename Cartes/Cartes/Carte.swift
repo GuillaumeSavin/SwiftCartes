@@ -9,7 +9,7 @@
 import Foundation
 
 struct Carte {
-    enum Valeur : Int, CustomStringConvertible{
+    enum Valeur : Int, CustomStringConvertible {
         case deux = 0, trois, quatre, cinq, six, sept, huit, neuf, dix, valet, dame, roi, `as`
         var description : String{
             switch self {
@@ -48,6 +48,7 @@ struct Carte {
         case CARREAU = 1
         case COEUR = 2
         case PIQUE = 3
+
         var description : String {
             switch self {
             case .TREFLE:
@@ -99,27 +100,6 @@ struct Carte {
         self.rawValue = newCard.rawValue
         
     }
-    
-    init?(stringLiteral: String) {
-        if stringLiteral.count != 2 {
-            return nil
-        } else {
-            let newCard : Carte
-            let temp = stringLiteral[stringLiteral.startIndex]
-            let value : Int = Int(String(temp))!
-            let color = stringLiteral[stringLiteral.index(after: stringLiteral.startIndex)]
-            
-            if (nil == Carte.Valeur(rawValue: value)) && ( nil == Carte.Couleur(rawValue: color)) {
-                return nil
-            } else {
-                newCard = Carte(val: Carte.Valeur(rawValue: value)! , coul: Carte.Couleur(rawValue: color)!)
-                self.valeur = newCard.valeur
-                self.couleur = newCard.couleur
-            }
-            
-        }
-    }
-
 }
 
 extension Carte : Comparable {
@@ -138,5 +118,33 @@ extension Carte : Strideable {
     }
     func distance(to other: Carte) -> Int {
         return abs(self.rawValue - other.rawValue)
+    }
+}
+
+extension Carte : ExpressibleByStringLiteral {
+    init(stringLiteral: String) {
+        let newCard : Carte
+        let temp = stringLiteral[stringLiteral.startIndex]
+        let temp2 = stringLiteral[stringLiteral.index(after: stringLiteral.startIndex)]
+        let value : Int = Int(String(temp))!
+        let color : Int
+        
+        switch temp2 {
+        case "♣️":
+            color = 0
+        case "♦️":
+            color = 1
+        case "♥️":
+            color = 2
+        case "♠️":
+            color = 3
+        default:
+            color = 0
+        }
+        
+        newCard = Carte(val: Carte.Valeur(rawValue: value)! , coul: Carte.Couleur(rawValue: color)!)
+        self.valeur = newCard.valeur
+        self.couleur = newCard.couleur
+        self.rawValue = newCard.rawValue        
     }
 }
