@@ -10,6 +10,7 @@ import Foundation
 
 struct Carte {
     enum Valeur : Int, CustomStringConvertible {
+        
         case deux = 0, trois, quatre, cinq, six, sept, huit, neuf, dix, valet, dame, roi, `as`
         var description : String{
             switch self {
@@ -67,6 +68,7 @@ struct Carte {
     let valeur : Valeur
     
     init(val: Valeur = Valeur.`as`, coul: Couleur = Couleur.COEUR) {
+        
         self.valeur = val
         self.couleur = coul
         switch val {
@@ -126,8 +128,21 @@ extension Carte : ExpressibleByStringLiteral {
         let newCard : Carte
         let temp = stringLiteral[stringLiteral.startIndex]
         let temp2 = stringLiteral[stringLiteral.index(after: stringLiteral.startIndex)]
-        let value : Int = Int(String(temp))!
+        let value : Int //: Int = Int(String(temp))!
         let color : Int
+        
+        switch temp {
+        case "A":
+            value = 12
+        case "K":
+            value = 11
+        case "Q":
+            value = 10
+        case "J":
+            value = 9
+        default:
+            value = Int(String(temp))!
+        }
         
         switch temp2 {
         case "♣️":
@@ -145,6 +160,6 @@ extension Carte : ExpressibleByStringLiteral {
         newCard = Carte(val: Carte.Valeur(rawValue: value)! , coul: Carte.Couleur(rawValue: color)!)
         self.valeur = newCard.valeur
         self.couleur = newCard.couleur
-        self.rawValue = newCard.rawValue        
+        self.rawValue = newCard.rawValue - 2
     }
 }

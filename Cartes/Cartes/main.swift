@@ -7,13 +7,12 @@
 //
 
 import Foundation
-
+/*
 let a = Carte()
 let b = Carte(val: .deux, coul: .TREFLE)
 let c = Carte(coul: .COEUR)
 let d = Carte(val: .huit)
 let e = Carte(val: Carte.Valeur(rawValue: 4)!, coul: Carte.Couleur(rawValue: 2)!)
-print(a)
 print("val a : \(a.rawValue), val b : \(b.rawValue), test a < b : \(a < b)")
 print("val a : \(a.rawValue), val c : \(c.rawValue), test a == b : \(a == c)")
 print("val a : \(a.rawValue), val d : \(d.rawValue), test a < d : \(a != d)")
@@ -27,11 +26,13 @@ for carte in b ... d {
 }
 
 let f : Carte = "8♣️"
-print("f : \(f)")
 
 for carte : Carte in "8♣️"..."4♦️"{
     print(carte)
-}
+}*/
 
+var paquet = Paquet.jeuComplet
+var donne = Paquet()
+print(paquet)
 
 

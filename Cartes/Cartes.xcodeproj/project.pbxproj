@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		430D6A76252AF78C007B517F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430D6A75252AF78C007B517F /* main.swift */; };
 		430D6A7D252AFAE5007B517F /* Carte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430D6A7C252AFAE5007B517F /* Carte.swift */; };
+		431DC1E3253452EE00A9AB91 /* Paquet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431DC1E2253452EE00A9AB91 /* Paquet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +28,7 @@
 		430D6A72252AF78C007B517F /* Cartes */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Cartes; sourceTree = BUILT_PRODUCTS_DIR; };
 		430D6A75252AF78C007B517F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		430D6A7C252AFAE5007B517F /* Carte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carte.swift; sourceTree = "<group>"; };
+		431DC1E2253452EE00A9AB91 /* Paquet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paquet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			children = (
 				430D6A75252AF78C007B517F /* main.swift */,
 				430D6A7C252AFAE5007B517F /* Carte.swift */,
+				431DC1E2253452EE00A9AB91 /* Paquet.swift */,
 			);
 			path = Cartes;
 			sourceTree = "<group>";
@@ -125,6 +128,7 @@
 			files = (
 				430D6A76252AF78C007B517F /* main.swift in Sources */,
 				430D6A7D252AFAE5007B517F /* Carte.swift in Sources */,
+				431DC1E3253452EE00A9AB91 /* Paquet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
