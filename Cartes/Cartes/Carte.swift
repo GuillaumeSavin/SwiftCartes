@@ -33,7 +33,7 @@ struct Carte {
             case .neuf:
             	return "9"
             case .dix:
-                return "10"
+                return "T"
             case .valet:
                 return "J"
             case .dame:
@@ -86,7 +86,6 @@ struct Carte {
     }
     
     init?(raw: Int) {
-        print("raw: \(raw)")
         if(raw < 0 || raw > 51) {
             return nil
         }
@@ -101,6 +100,20 @@ struct Carte {
         self.valeur = newCard.valeur
         self.rawValue = newCard.rawValue
         
+    }
+    
+    var estUneFigure : Bool {
+        if self.rawValue >= 11 && self.rawValue <= 14 {
+            return true
+        } else {
+            return false
+        }
+    }
+}
+
+extension Carte : CustomStringConvertible {
+    var description: String {
+        return "\(valeur)\(couleur)"
     }
 }
 
@@ -128,7 +141,7 @@ extension Carte : ExpressibleByStringLiteral {
         let newCard : Carte
         let temp = stringLiteral[stringLiteral.startIndex]
         let temp2 = stringLiteral[stringLiteral.index(after: stringLiteral.startIndex)]
-        let value : Int //: Int = Int(String(temp))!
+        let value : Int
         let color : Int
         
         switch temp {
@@ -141,7 +154,7 @@ extension Carte : ExpressibleByStringLiteral {
         case "J":
             value = 9
         default:
-            value = Int(String(temp))!
+            value = Int(String(temp))! - 2
         }
         
         switch temp2 {
@@ -160,6 +173,6 @@ extension Carte : ExpressibleByStringLiteral {
         newCard = Carte(val: Carte.Valeur(rawValue: value)! , coul: Carte.Couleur(rawValue: color)!)
         self.valeur = newCard.valeur
         self.couleur = newCard.couleur
-        self.rawValue = newCard.rawValue - 2
+        self.rawValue = newCard.rawValue
     }
 }
